@@ -61,7 +61,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 450);
+            this.ClientSize = new System.Drawing.Size(394, 386);
             this.Controls.Add(this.board);
             this.Name = "Game";
             this.Text = "Game";
