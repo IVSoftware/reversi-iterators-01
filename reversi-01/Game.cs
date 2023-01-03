@@ -26,7 +26,7 @@ namespace reversi_01
                 }
             }
         }
-        const int DEMO_DELAY_MS = 25;
+        const int DEMO_DELAY_MS = 100;
         private void legalMoveIterationStub(object? sender, EventArgs e)
         {
             clear();
