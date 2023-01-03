@@ -1,9 +1,14 @@
-You're having sporadic issues in your search algorithm and they're difficult to diagnose. The algorithm could be improved to be more methodical in how it inspects the surrouding cells. One solid way to do this is using custom [Iterators](https://learn.microsoft.com/en-us/dotnet/csharp/iterators#enumeration-sources-with-iterator-methods) capable of scanning virtual "lines" radiating in the eight directions. Using the standard `foreach` pattern, the cells are inspected at each 'yield' to see whether a determination can be made in terms of either a "legel move" or a "capture".
+Your question states that the function you wrote to scan the surrounding cells is failing sporadically and that it's difficult to diagnose. It was easy to reproduce the failures by running your code, but wasn't able to see an obvious way to effectively debug it.
 
-This grid is intended to demonstrate how the iterators work and _doesn't_ evaluate the cells in terms of game play in any way. The idea hear is to click any cell and observe the markup of U-R-D-L. It may help to see it in action and you can [clone]() this sample to try it.
+It "might" be more effective to _improve the algorithm_ where it's more methodical in how it inspects the surrounding cells, which would also be easier to debug if necessary. One solid way to do this would be to use custom [Iterators](https://learn.microsoft.com/en-us/dotnet/csharp/iterators#enumeration-sources-with-iterator-methods) where you could use a standard `foreach` pattern to inspect virtual "lines" radiating in the eight directions. At each 'yield' you can check to see whether a determination can be made in terms of either a "legal move" or a "capture".
 
+***
+Here's a proof-of-concept grid that is intended to demonstrate how the iterators work. It _doesn't_ evaluate the cells in terms of game play in any way but you can see how it would lend itself to doing that. The idea here is to click any cell and observe the markup of U-R-D-L. It may also help to see it working and set breakpoints, so and you can [clone](https://github.com/IVSoftware/reversi-iterators-01.git) this sample.
 
-The first four iterators might look like this, taking the mouse down position as the start:
+[![iterating from points][1]][1]
+
+***
+Left, Right, Up, Down iterator examples are shown - diagonals would follow the same pattern. The mouse down control passes the starting cell coordinate position as a Point:
 
 
     public IEnumerable<Point> CellsUp(Point point)
@@ -88,9 +93,7 @@ The code lays the groundwork for a methodical scan outward from any given point.
     }
 
 ***
-Where the demo board has been mocke like this for testing purposes:
-using System.Diagnostics;
-using System.Net.NetworkInformation;
+The demo board has been mocked like this for testing purposes:
 
     public partial class Game : Form
     {
@@ -127,3 +130,5 @@ using System.Net.NetworkInformation;
         .
     }
 
+
+  [1]: https://i.stack.imgur.com/REaTB.png
