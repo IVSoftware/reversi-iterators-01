@@ -12,7 +12,7 @@ namespace reversi_01
             InitializeComponent();
             for (int col = 0; col < board.ColumnCount; col++)
             {
-                for (int row = 0; row < board.ColumnCount; row++)
+                for (int row = 0; row < board.RowCount; row++)
                 {
                     var tile = new Label
                     {
